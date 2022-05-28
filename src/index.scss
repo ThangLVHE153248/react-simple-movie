@@ -2,8 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
+@import "./assets/scss/index.scss";
+
 @layer base {
   body {
     @apply bg-slate-900;
+  }
+}
+
+@layer components {
+  .page-container {
+    max-width: 940px;
   }
 }

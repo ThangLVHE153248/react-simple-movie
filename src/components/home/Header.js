@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 
 const tabList = [
   {
@@ -9,19 +10,21 @@ const tabList = [
     name: "Movies",
     path: "/movies",
   },
-  {
-    name: "Anime",
-    path: "/anime",
-  },
 ];
 
 const Header = () => {
   return (
-    <div className="flex container text-gray-400 py-7">
+    <div className="flex container text-gray-400 py-7 font-medium gap-x-10">
       {tabList.map((tab, index) => (
-        <div key={index} className="mr-10 text-base font-medium">
+        <NavLink
+          to={tab.path}
+          key={index}
+          className={({ isActive }) =>
+            isActive ? "text-primary nav_item-active" : ""
+          }
+        >
           {tab.name}
-        </div>
+        </NavLink>
       ))}
     </div>
   );

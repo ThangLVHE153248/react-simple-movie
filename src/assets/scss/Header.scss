@@ -1,0 +1,17 @@
+.nav {
+  &_item {
+    &-active {
+      position: relative;
+      &::after {
+        content: "";
+        position: absolute;
+        width: 4px;
+        height: 4px;
+        bottom: -6px;
+        left: 50%;
+        border-radius: 50%;
+        background-color: $color-primary;
+      }
+    }
+  }
+}
