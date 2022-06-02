@@ -12,6 +12,11 @@
 
 @layer components {
   .page-container {
-    max-width: 940px;
+    padding: 0px 50px;
+  }
+  .title-h1 {
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 36px;
   }
 }

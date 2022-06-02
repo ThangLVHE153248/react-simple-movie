@@ -1,5 +1,5 @@
 import React from "react";
-import HomeBanner from "../components/banner/HomeBanner";
+import BannerList from "../components/banner/BannerList";
 import FilmList from "../components/film/FilmList";
 
 const filmTabs = [
@@ -17,16 +17,18 @@ const filmTabs = [
 
 const HomePage = () => {
   return (
-    <div className="page-container">
-      <HomeBanner></HomeBanner>
-      {filmTabs.map((tab, index) => (
-        <FilmList
-          key={index}
-          title={tab.title}
-          path={tab.path}
-          type={tab.type}
-        ></FilmList>
-      ))}
+    <div>
+      <BannerList type="movie"></BannerList>
+      <div className="page-container">
+        {filmTabs.map((tab, index) => (
+          <FilmList
+            key={index}
+            title={tab.title}
+            path={tab.path}
+            type={tab.type}
+          ></FilmList>
+        ))}
+      </div>
     </div>
   );
 };

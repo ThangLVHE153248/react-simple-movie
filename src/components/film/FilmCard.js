@@ -1,9 +1,10 @@
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
+import { Link } from "react-router-dom";
 import WatchButton from "../WatchButton";
 
-const FilmCard = ({ film }) => {
+const FilmCard = ({ film, type }) => {
   const {
     poster_path,
     vote_average,
@@ -11,12 +12,16 @@ const FilmCard = ({ film }) => {
     release_date,
     name,
     first_air_date,
+    id,
   } = film;
   const filmName = title || name;
   const filmDate = release_date || first_air_date;
   const path = `https://image.tmdb.org/t/p/original/${poster_path}`;
   return (
-    <div className="relative w-[215px] h-[360px] rounded-xl text-white overflow-hidden flex flex-col">
+    <Link
+      to={`/${type}/${id}`}
+      className="relative flex w-full h-[410px] rounded-xl text-white overflow-hidden flex-col"
+    >
       <img
         src={path}
         alt="movie_card"
@@ -26,7 +31,7 @@ const FilmCard = ({ film }) => {
         <img
           src={path}
           alt={title}
-          className="w-full h-[190px] rounded-xl object-cover"
+          className="w-full h-[240px] rounded-xl object-cover"
         />
         <div className="flex flex-col flex-1">
           <div className="font-medium text-sm mt-3">{filmName}</div>
@@ -44,7 +49,7 @@ const FilmCard = ({ film }) => {
           </div>
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
 
