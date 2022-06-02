@@ -12,7 +12,7 @@ const HomeBanner = ({ film, id, type }) => {
   return (
     <Link
       to={`/${type}/${id}`}
-      className="banner block relative h-[500px] rounded-2xl overflow-hidden cursor-pointer"
+      className="banner block relative h-[500px] overflow-hidden cursor-pointer"
     >
       <img
         src={path}

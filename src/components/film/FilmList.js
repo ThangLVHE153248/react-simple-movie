@@ -5,10 +5,11 @@ import "swiper/scss";
 import useSWR from "swr";
 import { fetcher, apiKey } from "../../config";
 
-const FilmList = ({ title, path, type }) => {
+const FilmList = ({ title, path, type, query }) => {
   const [movies, setMovies] = useState([]);
+  const apiQuery = query ? `api_key=${apiKey}&${query}` : `api_key=${apiKey}`;
   const { data } = useSWR(
-    `https://api.themoviedb.org/3/${type}/${path}?api_key=${apiKey}
+    `https://api.themoviedb.org/3/${type}/${path}?${apiQuery}
     `,
     fetcher
   );
