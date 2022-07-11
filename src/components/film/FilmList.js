@@ -2,15 +2,17 @@ import React, { useEffect, useState } from "react";
 import { SwiperSlide, Swiper } from "swiper/react";
 import FilmCard from "./FilmCard";
 import "swiper/scss";
+import "swiper/scss/navigation";
+import { Navigation } from "swiper";
 import useSWR from "swr";
 import { fetcher, apiKey } from "../../config";
 
-const FilmList = ({ title, path, type, query }) => {
+const FilmList = ({ title, path, type, query, isSearch }) => {
   const [movies, setMovies] = useState([]);
   const apiQuery = query ? `api_key=${apiKey}&${query}` : `api_key=${apiKey}`;
   const { data } = useSWR(
     `https://api.themoviedb.org/3/${type}/${path}?${apiQuery}
-    `,
+      `,
     fetcher
   );
 
@@ -26,10 +28,15 @@ const FilmList = ({ title, path, type, query }) => {
         {title}
       </div>
       <div className="movie_list">
-        <Swiper grabCursor={"true"} spaceBetween={25} slidesPerView={"auto"}>
+        <Swiper
+          modules={[Navigation]}
+          navigation={true}
+          spaceBetween={25}
+          slidesPerView={"auto"}
+        >
           {movies.map((film, index) => (
             <SwiperSlide key={index}>
-              <FilmCard film={film} key={index} type={type} />
+              <FilmCard film={film} key={index} type={isSearch ? path : type} />
             </SwiperSlide>
           ))}
         </Swiper>

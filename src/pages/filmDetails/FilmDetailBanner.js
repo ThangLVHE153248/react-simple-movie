@@ -1,7 +1,10 @@
 import React from "react";
+import filmImage from "../../assets/images/film.png";
 
 const FilmDetailBanner = ({ poster_path }) => {
-  const path = `https://image.tmdb.org/t/p/original/${poster_path}`;
+  const path = poster_path
+    ? `https://image.tmdb.org/t/p/original/${poster_path}`
+    : filmImage;
   return (
     <div>
       <div className="relative w-full h-[700px] mb-[300px]">

@@ -15,12 +15,14 @@ const SearchPage = () => {
         type="search"
         path="movie"
         query={`query=${params.query}`}
+        isSearch={true}
       ></FilmList>
       <FilmList
         title="Series"
         type="search"
         path="tv"
         query={`query=${params.query}`}
+        isSearch={true}
       ></FilmList>
     </div>
   );

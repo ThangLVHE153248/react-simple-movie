@@ -7,6 +7,7 @@ import { apiKey } from "../../config";
 import { useGetAxios } from "../../hooks/useGetAxios";
 import FilmDetailBanner from "./FilmDetailBanner";
 import FilmDetailTrailers from "./FilmDetailTrailers";
+import filmActor from "../../assets/images/actor.png";
 
 const FilmDetails = () => {
   const pathName = window.location.pathname;

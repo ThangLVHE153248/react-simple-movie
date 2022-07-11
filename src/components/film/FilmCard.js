@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import { Link } from "react-router-dom";
 import WatchButton from "../WatchButton";
+import filmImage from "../../assets/images/film.png";
 
 const FilmCard = ({ film, type }) => {
   const {
@@ -16,7 +17,9 @@ const FilmCard = ({ film, type }) => {
   } = film;
   const filmName = title || name;
   const filmDate = release_date || first_air_date;
-  const path = `https://image.tmdb.org/t/p/original/${poster_path}`;
+  const path = poster_path
+    ? `https://image.tmdb.org/t/p/original/${poster_path}`
+    : filmImage;
   return (
     <Link
       to={`/${type}/${id}`}
